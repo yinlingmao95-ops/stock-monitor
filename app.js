@@ -3,7 +3,7 @@
 'use strict';
 
 // ---------- Config ----------
-const PASS_HASH = '7f34dd919ce796069f3a166f7bda968cb8e3be579809bccdf284735da55b980f'; // sha256 of password
+const PASS_HASH = '615ed7fb1504b0c724a296d7a69e6c7b2f9ea2c57c1d8206c5afdf392ebdfd25'; // sha256 of password
 const AUTH_KEY = 'mm_auth_v1';
 const WATCH = [
   { s: 'AAPL',  name: '苹果 Apple',      group: 'Mag 7' },
