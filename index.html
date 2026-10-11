@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0a1a">
+<meta name="robots" content="noindex,nofollow">
+<title>市场监控 · Market Monitor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Password gate -->
+<div id="gate" class="gate">
+  <form id="gateForm" class="gate-card" autocomplete="off">
+    <div class="gate-icon">🔒</div>
+    <h1>市场监控</h1>
+    <p class="muted">请输入访问密码 · Enter password</p>
+    <input id="gatePwd" type="password" inputmode="numeric" placeholder="密码 Password" autocomplete="current-password" autofocus>
+    <button type="submit" class="btn-primary">进入 Enter</button>
+    <p id="gateErr" class="gate-err"></p>
+  </form>
+</div>
+
+<div id="app" class="app" hidden>
+  <header class="topbar">
+    <div>
+      <h1 class="hello">你好，探索者 👋</h1>
+      <p class="muted">你的美股 · 利率 · 原油监控总览</p>
+    </div>
+    <div class="top-actions">
+      <span id="status" class="status">加载中…</span>
+      <button id="refreshBtn" class="icon-btn" title="刷新 Refresh">⟳</button>
+      <button id="lockBtn" class="icon-btn" title="锁定 Lock">🔒</button>
+    </div>
+  </header>
+
+  <!-- Gauges -->
+  <section class="card gauges-card glow">
+    <div class="card-title"><span class="ico">ⓘ</span> 市场仪表盘 <span class="muted small">Market Gauges</span></div>
+    <div class="gauges">
+      <div class="gauge-side">
+        <div class="gauge" id="g-mag7"></div>
+        <div class="gauge" id="g-vix"></div>
+      </div>
+      <div class="gauge tach" id="g-tach"></div>
+      <div class="gauge-side">
+        <div class="gauge" id="g-tnx"></div>
+        <div class="gauge" id="g-brent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instrument list -->
+  <section class="section">
+    <div class="section-head">
+      <h2>自选行情 <span class="muted small">Watchlist</span></h2>
+      <div class="seg" id="sortSeg">
+        <button data-sort="default" class="active">默认</button>
+        <button data-sort="d1">1日</button>
+        <button data-sort="m1">1月</button>
+        <button data-sort="y1">1年</button>
+      </div>
+    </div>
+    <div class="card list-card">
+      <div class="row head">
+        <div>名称 / 代码</div><div class="num">最新</div><div class="num">1日</div><div class="num">1月</div><div class="num">1年</div>
+      </div>
+      <div id="list"></div>
+    </div>
+    <p class="muted small legend">🟢 最快上涨 / 🔴 最快下跌（各列最强与最弱高亮）· 点击任意一行查看 K 线</p>
+  </section>
+
+  <!-- Dragon-tiger board -->
+  <section class="section">
+    <div class="section-head">
+      <h2>龙虎榜 <span class="muted small">Today's Top Movers</span></h2>
+      <span class="muted small" id="lhbDate"></span>
+    </div>
+    <div class="lhb">
+      <div class="card lhb-col up"><div class="lhb-title">🐉 涨幅榜 Gainers</div><div id="lhbUp"></div></div>
+      <div class="card lhb-col down"><div class="lhb-title">🐯 跌幅榜 Losers</div><div id="lhbDown"></div></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <div class="lhb-title">⚡ 波动排行 |1日%| <span class="muted small">Biggest absolute moves</span></div>
+      <div id="lhbAbs"></div>
+    </div>
+  </section>
+
+  <footer class="foot muted small">
+    数据来源 Yahoo Finance（非官方接口，可能延迟/中断）。仅供参考，不构成投资建议。<br>
+    <span id="dataInfo"></span>
+  </footer>
+</div>
+
+<!-- Detail modal -->
+<div id="modal" class="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="mTitle"></div>
+        <div class="muted small" id="mSub"></div>
+      </div>
+      <button class="icon-btn" id="mClose">✕</button>
+    </div>
+    <div class="stats" id="mStats"></div>
+    <div class="seg" id="rangeSeg">
+      <button data-r="22">1月</button>
+      <button data-r="66">3月</button>
+      <button data-r="126" class="active">6月</button>
+      <button data-r="252">1年</button>
+      <button data-r="9999">全部</button>
+    </div>
+    <div id="chart" class="chart"></div>
+    <div class="card-title" style="margin-top:14px">每日涨跌 <span class="muted small">Daily change %</span></div>
+    <div id="mDaily" class="daily"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
