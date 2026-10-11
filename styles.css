@@ -118,3 +118,6 @@ button{font-family:inherit;cursor:pointer}
   .topbar p{font-size:12px}
   .status{max-width:120px}
 }
+
+/* Mask gate password without iOS numeric+password truncation */
+.gate-pwd{-webkit-text-security:disc;text-security:disc;letter-spacing:.12em;font-size:18px}
