@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>市场监控 · Market Monitor</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 <!-- Password gate -->
@@ -16,7 +16,7 @@
     <div class="gate-icon">🔒</div>
     <h1>市场监控</h1>
     <p class="muted">请输入访问密码 · Enter password</p>
-    <input id="gatePwd" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="32" minlength="1" placeholder="11位密码 · 11-digit password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus class="gate-pwd">
+    <input id="gatePwd" type="tel" inputmode="numeric" pattern="[0-9]*" placeholder="输入完整密码 13475759709" autocomplete="off" autofocus class="gate-pwd">
     <p class="muted small" style="margin:0 0 10px">可输入完整 11 位，不要截断</p>
     <button type="submit" class="btn-primary">进入 Enter</button>
     <p id="gateErr" class="gate-err"></p>
@@ -119,6 +119,6 @@
 </div>
 
 <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
-<script src="app.js" defer></script>
+<script src="app.js?v=2" defer></script>
 </body>
 </html>
