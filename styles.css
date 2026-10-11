@@ -15,8 +15,9 @@ button{font-family:inherit;cursor:pointer}
 .gate-card{width:100%;max-width:360px;background:linear-gradient(160deg,#221a52,#14112d);border:1px solid var(--line);border-radius:24px;padding:32px 26px;text-align:center;box-shadow:0 20px 60px #0008,0 0 40px #7b5cff22}
 .gate-icon{font-size:36px}
 .gate-card h1{margin:8px 0 4px;font-size:24px}
-.gate-card input{width:100%;margin:18px 0 12px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#0f0d24;color:var(--text);font-size:16px;outline:none}
-.gate-card input:focus{border-color:var(--accent)}
+.gate-card input,.gate-card textarea{width:100%;margin:18px 0 12px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#0f0d24;color:var(--text);font-size:16px;outline:none;resize:vertical;min-height:6.5em;line-height:1.6;font-family:inherit}
+.gate-card input:focus,.gate-card textarea:focus{border-color:var(--accent)}
+.gate-pwd{-webkit-text-security:disc;text-security:disc;letter-spacing:.12em;font-size:18px}
 .btn-primary{width:100%;padding:13px;border:0;border-radius:14px;background:linear-gradient(90deg,var(--accent),var(--blue));color:#fff;font-size:16px;font-weight:600}
 .gate-err{color:var(--down);min-height:18px;font-size:13px}
 .shake{animation:shake .35s}
